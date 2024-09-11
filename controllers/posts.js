@@ -4,6 +4,8 @@ import User from "../models/User.js";
 // create
 export const createPost = async (req, res) => {
     try {
+        console.log('Request Body:', req.body);   // Log the request body
+        console.log('Uploaded File:', req.file); 
         const { userId, description, picturePath } = req.body;
         const user = await User.findById(userId);
         const newPost = new Post({
